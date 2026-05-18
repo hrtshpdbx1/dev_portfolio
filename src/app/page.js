@@ -158,14 +158,14 @@ export default function Home() {
               <ProjectCard
                 href="/social-script-v2"
                 image={HomepageSSv2}
-                title="Social Script"
+                title="Social Script v2"
                
               />
 
               <ProjectCard
                 href="/social-script-v1"
                 image={HomepageSSv1}
-                title="Social Script"
+                title="Social Script v1"
               
               />
 
