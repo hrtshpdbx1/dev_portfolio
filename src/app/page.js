@@ -3,21 +3,24 @@
 
 import Link from "next/link";
 import Image from 'next/image';
-import HomepageSS from '../../public/img/screenshots/ThumbnailSS.png';
-import HomepagePGQ from '../../public/img/screenshots/ThumbnailPQ.png';
+import HomepageSSv2 from '../../public/img/thumbnails/socialscript-v2.png';
+import HomepageSSv1 from '../../public/img/thumbnails/socialscript-v1.png';
+import HomepagePGQ from '../../public/img/thumbnails/paygap-quest.png';
 import ContactForm from '@/components/ContactForm.jsx';
+import ProjectCard from "@/components/ProjectCard";
 // @ -> pointe vers le dossier src
 
 // Import des icônes Lucide
-import { 
-  CheckCircle2, 
-  BookOpenCheck, 
-  Users2, 
-  Megaphone, 
-  BarChart3, 
+import {
+  CheckCircle2,
+  BookOpenCheck,
+  Users2,
+  Megaphone,
+  BarChart3,
   Handshake,
-  Settings 
+  Settings
 } from 'lucide-react';
+
 
 
 
@@ -48,20 +51,20 @@ export default function Home() {
           <div className="content-container">
             <div className="text_intro">
               <h2>À propos</h2>
-             <p>
+              <p>
                 Dans le courant des années 2000, j&apos;ai découvert que je pouvais personnaliser le layout
                 de mon Myspace et j&apos;ai passé des heures à bidouiller du CSS sur le PC fixe
-                familial. 
+                familial.
                 {/* C&apos;était ma première expérience de code, aussi déroutante que
                 grisante. J&apos;étais fascinée par ces caractères obscurs capables de créer
                 des univers aussi riches.  */}
-                 Quelques semaines plus tard, j&apos;avais refait le layout
+                Quelques semaines plus tard, j&apos;avais refait le layout
                 des profils de tout mon entourage.
               </p>
-             <p>
+              <p>
                 <em>Fast forward de quelques années </em> : après mes études d&apos;Arts Numériques aux Beaux-Arts,
-                je passe 4 ans dans le secteur associatif à coordonner des projets complexes à fort impact social. 
-                Cette expérience m&apos;a appris la gestion de projet, la communication et la résolution de problèmes, 
+                je passe 4 ans dans le secteur associatif à coordonner des projets complexes à fort impact social.
+                Cette expérience m&apos;a appris la gestion de projet, la communication et la résolution de problèmes,
                 tout en nourrissant mon besoin de <em>mettre mon énergie au service de solutions concrètes.</em>
               </p>
               <p>
@@ -72,7 +75,7 @@ export default function Home() {
               </p>
               <p>
                 Ayant moi-même un handicap invisible, je suis particulièrement sensible à
-                l&apos;accessibilité. 
+                l&apos;accessibilité.
                 Ce qui m&apos;anime aujourd&apos;hui : concevoir des interfaces audacieuses et vivantes, sans jamais sacrifier l&apos;équité numérique.
               </p>
             </div>
@@ -142,54 +145,40 @@ export default function Home() {
           </div>
         </section>
 
-        
+
 
         {/* --- SECTION 4 --- */}
         {/* --- Projets --- */}
 
         <section id="section4" className="page-section section4">
-
           <div className="section-intro">
-                <h2>Projets sélectionnés</h2>
+            <h2>Projets sélectionnés</h2>
             <div className="projects_container">
-              <div className="projet_elem">
-                <Link href="/social-script">
-                  <div className="media-container">
-                    <Image
-                      src={HomepageSS}
-                      width={500}
-                      height={500}
-                      alt="Capture d'écran de Social Script"
-                    />
-                    <div className="overlay-layer">
 
-                      <span className="overlay-text">Social Script</span>
-                    </div>
-                  </div>
-                </Link>
+              <ProjectCard
+                href="/social-script-v2"
+                image={HomepageSSv2}
+                title="Social Script"
+               
+              />
 
-              </div>
+              <ProjectCard
+                href="/social-script-v1"
+                image={HomepageSSv1}
+                title="Social Script"
+              
+              />
 
-              <div className="projet_elem">
+              <ProjectCard
+                href="/paygap-quest"
+                image={HomepagePGQ}
+                title="PayGap Quest"
+              />
 
-                <Link href="/paygap-quest">
-                  <div className="media-container">
-                    <Image
-                      src={HomepagePGQ}
-                      width={500}
-                      height={500}
-                      alt="Capture d'écran de PayGap Quest"
-                    />
-                    <div className="overlay-layer">
-
-                      <span className="overlay-text">PayGap Quest</span>
-                    </div>
-                  </div>
-                </Link>
-              </div>
             </div>
-             </div>
-        </section >
+          </div>
+        </section>
+
 
         {/* --- SECTION 5 --- */}
         {/* --- CONTACT FORM --- */}
@@ -197,9 +186,9 @@ export default function Home() {
           <div className="section-intro">
             <h2>Contactez-moi</h2>
             <p>
-                Je <em>recherche actuellement un stage</em> où je pourrai allier créativité, éthique et impact, pour
-                contribuer à un web plus
-                inclusif et respectueux. N&apos;hésitez pas à me contacter si vous cherchez une stagiaire,
+              Je <em>recherche actuellement un stage</em> où je pourrai allier créativité, éthique et impact, pour
+              contribuer à un web plus
+              inclusif et respectueux. N&apos;hésitez pas à me contacter si vous cherchez une stagiaire,
               si vous avez une question ou simplement pour
               faire connaissance.</p>
 
@@ -213,8 +202,8 @@ export default function Home() {
           </div>
         </section>
 
-    
-  
+
+
         {/* <section id="section6" className="page-section section4">
           <div className="content-container">
             <div className="text_intro">
@@ -240,7 +229,7 @@ export default function Home() {
           </div>
         </section> */}
 
-    
+
 
 
 

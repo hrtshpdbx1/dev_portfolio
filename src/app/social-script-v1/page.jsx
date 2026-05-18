@@ -1,9 +1,12 @@
+// app/social-script-v1/page.jsx
+
 "use client"
 import React from 'react';
 import Image from 'next/image';
 import { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faRocket} from '@fortawesome/free-solid-svg-icons';
+import { faRocket, faInfoCircle} from '@fortawesome/free-solid-svg-icons';
+import Link from 'next/link';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import '../styles/project-detail.css';
 import Footer from '@/components/Footer';
@@ -20,7 +23,7 @@ export default function SocialScript() {
             <main id="main-content" className="projectPage">
                  {/* --- HEADER --- */}
                 <header className="projectHero">
-                    <h1>Social Script</h1>
+                    <h1>Social Script V1</h1>
 
 
                     <div className="projectMeta">
@@ -60,12 +63,21 @@ export default function SocialScript() {
                         </div>
                     </div>
                 </header>
+                {/* --- BANDEAU DE LIAISON VERS LA V2 --- */}
+<aside className="projectVersionBanner" aria-label="Lien vers la version actuelle du projet">
+    <FontAwesomeIcon icon={faInfoCircle} aria-hidden="true" />
+    <p>
+        Ce projet a depuis été reconstruit en application fullstack : <Link href="/social-script-v2">Social Script V2</Link>.
+    </p>
+</aside>
                 <section className="projectSection">
-                    <p className="projectTagline">
-                        SocialScript est un simulateur interactif d&apos;entraînement aux situations sociales,
-                        développé dans le cadre d&apos;un workshop HTML/CSS/JavaScript de ma formation FullStack JavaScript Developer à Interface3. Le projet répond à un besoin d&apos;apprentissage explicite des codes sociaux dans un
-                        environnement sécurisé, particulièrement utile pour les personnes neurodivergentes.
-                    </p>
+                   <p className="projectTagline">
+    SocialScript est un simulateur interactif d&apos;entraînement aux situations sociales,
+    développé dans le cadre d&apos;un workshop HTML/CSS/JavaScript de ma formation
+    FullStack JavaScript Developer à Interface3. Cette V1 est le prototype original du
+    projet, conçu pour valider l&apos;intuition de départ : offrir aux personnes
+    neuro-atypiques un environnement explicite pour s&apos;entraîner aux codes sociaux.
+</p>
                     <figure className="imagePlaceholder no-decor">
                         <Image
                             src="/img/MockupSS.png"

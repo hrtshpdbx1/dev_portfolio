@@ -180,6 +180,18 @@ section.projectSection:nth-child(5) > h3:nth-child(2)
     width: 100%;
 }
 
+/* Schéma d'architecture compact */
+.imagePlaceholder.diagram-compact {
+    width: 55% !important;
+    margin: var(--space-6) auto !important;
+}
+
+@media (max-width: 768px) {
+    .imagePlaceholder.diagram-compact {
+        width: 100% !important;
+    }
+}
+
 .containerHorizontal {
     display: flex;
     flex-direction: row;
@@ -488,6 +500,44 @@ p code,
     border: 1px solid #44475a;
     white-space: nowrap;
 }
+
+
+/* =========================================
+   BANDEAU DE LIAISON ENTRE VERSIONS DE PROJET
+   ========================================= */
+.projectVersionBanner {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    padding: var(--space-4) var(--space-6);
+    background-color: rgb(from var(--main-text) r g b / 5%);
+    border-left: 3px solid var(--main-text);
+    border-radius: var(--radius-md);
+    font-size: var(--text-sm);
+    margin: var(--space-4) 0;
+}
+
+.projectVersionBanner svg {
+    flex-shrink: 0;
+    font-size: 1.2em;
+    opacity: 0.8;
+}
+
+.projectVersionBanner p {
+    margin: 0 !important;
+    line-height: 1.5;
+}
+
+.projectVersionBanner a {
+    font-weight: var(--weight-bold);
+    text-decoration: underline;
+    color: var(--main-text);
+}
+
+.projectVersionBanner a:hover {
+    opacity: 0.7;
+}
+
 /* =========================================
    ACCORDÉONS (Crédits & A11y)
    ========================================= */

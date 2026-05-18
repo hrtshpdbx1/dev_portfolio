@@ -778,24 +778,25 @@ em {
     }
 
     .projects_container {
-        display: flex;
-        align-items: center;
-        justify-content: flex-start;
-        gap: 10%;
-
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--space-6);
+        align-items: start;
+        width: 100%;
+        margin-top: var(--space-6);
 
         .projet_elem {
             display: flex;
             flex-direction: column;
             align-items: center;
-            width: 80%;
+            width: 100%;
+            max-width: none;
             text-align: center;
-            max-width: 37.5rem;
-
 
             img {
                 width: 100%;
-                height: auto;
+                height: 100%;
+                object-fit: contain;
                 transition: transform 0.6s ease;
             }
 
@@ -803,6 +804,7 @@ em {
                 position: relative;
                 overflow: hidden;
                 width: 100%;
+                aspect-ratio: 16 / 10;
                 cursor: pointer;
             }
 
@@ -816,17 +818,11 @@ em {
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-
-                /* état initial à gauche */
                 transform: translateX(-100%);
                 opacity: 1;
                 transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
                 z-index: 10;
             }
-
 
             .overlay-text {
                 color: var(--main-background);
@@ -834,22 +830,18 @@ em {
                 border-radius: var(--radius-full);
                 padding: 0.6rem 1.25rem;
                 opacity: 0;
-                /*  effet de retard  */
                 transform: translateX(-1.25rem);
                 transition: all 0.3s ease 0.3s;
             }
 
-            /* L'overlay arrive et recouvre l'image */
             .media-container:hover .overlay-layer {
                 transform: translateX(0%);
             }
 
-            /* Le texte apparaît avec un léger décalage */
             .media-container:hover .overlay-text {
                 opacity: 1;
                 transform: translateX(0);
             }
-
 
             .btn_container {
                 display: flex;
@@ -859,177 +851,162 @@ em {
                 padding-right: 5%;
                 padding-left: 5%;
             }
+        }
 
+        @media (max-width: 900px) {
+            grid-template-columns: repeat(2, 1fr);
+        }
 
+        @media (max-width: 600px) {
+            grid-template-columns: 1fr;
         }
     }
-}
 
 
+    @keyframes slideReveal {
+        from {
+            opacity: 0;
+            transform: translate3d(-20px, 0, 0);
+            /* Part de la gauche */
+        }
 
-@keyframes slideReveal {
-    from {
-        opacity: 0;
-        transform: translate3d(-20px, 0, 0);
-        /* Part de la gauche */
+        to {
+            opacity: 1;
+            transform: translate3d(0, 0, 0);
+            /* Arrive à sa place */
+        }
     }
 
-    to {
-        opacity: 1;
-        transform: translate3d(0, 0, 0);
-        /* Arrive à sa place */
-    }
-}
 
+    /* SECTION 4 : CONTACT */
 
-/* SECTION 4 : CONTACT */
+    .section5 {
 
-.section5 {
+        .contactform_container {
+            margin-top: var(--space-10);
+        }
 
-    .contactform_container {
-        margin-top: var(--space-10);
     }
 
-}
-
-/* =========================================
+    /* =========================================
    RESPONSIVE (LAPTOPS & ZOOM WINDOWS 125% / 150%)
    ========================================= */
-@media (max-width: 1366px) {
+    @media (max-width: 1366px) {
 
-    /* Aimantation du scroll desactivée */
-    html,
-    body {
-        scroll-snap-type: none !important;
-        height: auto !important;
+        /* Aimantation du scroll desactivée */
+        html,
+        body {
+            scroll-snap-type: none !important;
+            height: auto !important;
+        }
+
+        .page-section {
+            scroll-snap-align: none !important;
+            scroll-snap-stop: normal !important;
+            width: 100vw;
+            padding-left: 5rem;
+            padding-right: 5rem;
+            box-sizing: border-box;
+        }
+
+
     }
 
-    .page-section {
-        scroll-snap-align: none !important;
-        scroll-snap-stop: normal !important;
-        width: 100vw;
-        padding-left: 5rem;
-        padding-right: 5rem;
-        box-sizing: border-box;
-    }
 
-
-}
-
-
-/* =========================================
+    /* =========================================
  * Media Queries Mobile *
    ========================================= */
-@media (max-width: 768px) {
+    @media (max-width: 768px) {
 
 
-    /* Scroll desactivé */
-    html,
-    body {
-        scroll-snap-type: none !important;
+        /* Scroll desactivé */
+        html,
+        body {
+            scroll-snap-type: none !important;
+        }
+
+        .page-section {
+            scroll-snap-align: none !important;
+            scroll-snap-stop: normal !important;
+        }
+
+
+
+        /* 1. TYPO*/
+        body h1 {
+            font-size: var(--text-2xl);
+        }
+
+        body h2 {
+            font-size: var(--text-xl);
+        }
+
+        /* Masquer la ligne des titres de section  */
+        /* todo: à supprimer  */
+        .title-wrapper .section-title-line {
+            display: none;
+        }
+
+        .section4 .title-wrapper h2 {
+            text-align: left;
+        }
+
+        /* 2. LAYOUT */
+        .page-section {
+            width: 100%;
+            padding-left: var(--space-6);
+            padding-right: var(--space-6);
+            box-sizing: border-box;
+            display: block;
+            height: auto;
+            min-height: 100vh;
+            padding-top: var(--space-24);
+            padding-bottom: var(--space-16);
+        }
+
+
+        #main-content p {
+            max-width: 100%;
+        }
+
+        /* 3. SECTION COMPÉTENCES */
+        .section3 .div_skills .skills-columns {
+            flex-direction: column;
+            gap: 2rem;
+            width: 100%;
+        }
+
+        .skills-category {
+            width: 100%;
+        }
+
+        .skills-list li svg,
+        .icon-logo {
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        /*Alignement icônes texte */
+        .section3 .div_skills .skills-columns .skills-category .skills-list li {
+            flex-direction: row !important;
+            align-items: flex-start !important;
+        }
+
+        .section3 .div_skills .skills-columns .skills-category .skills-list li svg,
+        .section3 .div_skills .skills-columns .skills-category .skills-list li i,
+        .icon-logo {
+            flex-shrink: 0;
+            margin-top: 4px;
+        }
+
+
+
+        /* 5. SIDEBAR R*/
+        #sidebar {
+            width: 85vw;
+            right: -85vw;
+        }
     }
 
-    .page-section {
-        scroll-snap-align: none !important;
-        scroll-snap-stop: normal !important;
-    }
 
-
-
-    /* 1. TYPO*/
-    body h1 {
-        font-size: var(--text-2xl);
-    }
-
-    body h2 {
-        font-size: var(--text-xl);
-    }
-
-    /* Masquer la ligne des titres de section  */
-    /* todo: à supprimer  */
-    .title-wrapper .section-title-line {
-        display: none;
-    }
-
-    .section4 .title-wrapper h2 {
-        text-align: left;
-    }
-
-    /* 2. LAYOUT */
-    .page-section {
-        width: 100%;
-        padding-left: var(--space-6);
-        padding-right: var(--space-6);
-        box-sizing: border-box;
-        display: block;
-        height: auto;
-        min-height: 100vh;
-        padding-top: var(--space-24);
-        padding-bottom: var(--space-16);
-    }
-
-
-    #main-content p {
-        max-width: 100%;
-    }
-
-    /* 3. SECTION COMPÉTENCES */
-    .section3 .div_skills .skills-columns {
-        flex-direction: column;
-        gap: 2rem;
-        width: 100%;
-    }
-
-    .skills-category {
-        width: 100%;
-    }
-
-    .skills-list li svg,
-    .icon-logo {
-        flex-shrink: 0;
-        margin-top: 2px;
-    }
-
-    /*Alignement icônes texte */
-    .section3 .div_skills .skills-columns .skills-category .skills-list li {
-        flex-direction: row !important;
-        align-items: flex-start !important;
-    }
-
-    .section3 .div_skills .skills-columns .skills-category .skills-list li svg,
-    .section3 .div_skills .skills-columns .skills-category .skills-list li i,
-    .icon-logo {
-        flex-shrink: 0;
-        margin-top: 4px;
-    }
-
-    /* 4. SECTION PROJETS */
-    .section4 .projects_container {
-        flex-direction: column;
-        gap: 3rem;
-        width: 100%;
-    }
-
-    .section4 .projects_container .projet_elem {
-        width: 100%;
-        max-width: 100%;
-    }
-
-    /* Empêche étirement des images  */
-    .section4 .projects_container .projet_elem img {
-        width: 100% !important;
-        height: auto !important;
-        object-fit: contain;
-    }
-
-    .section4 .projects_container .projet_elem .media-container {
-        height: auto !important;
-        display: block;
-    }
-
-    /* 5. SIDEBAR R*/
-    #sidebar {
-        width: 85vw;
-        right: -85vw;
-    }
 }
